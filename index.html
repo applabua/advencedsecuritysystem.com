@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>Advanced Security Systems</title>
   <!-- FontAwesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
 
   <style>
     :root {
@@ -19,16 +19,19 @@
     html, body {
       height:100%;
       background:var(--steel-mid) url('steel-texture.png') center/cover no-repeat;
-      overflow:hidden; font-family:Arial, sans-serif; color:var(--text-light); line-height:1.4;
+      overflow:hidden;
+      font-family:Arial, sans-serif;
+      color:var(--text-light);
+      line-height:1.4;
     }
     a { color:inherit; text-decoration:none; }
     input, textarea { font-size:16px; }
 
-    /* Preloader */
+    /* Прелоадер */
     #preloader {
       position:fixed; inset:0; background:var(--steel-dark);
       display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
-      padding-top:25vh; z-index:10000; opacity:1; transition:opacity .5s ease;
+      padding-top:25vh; z-index:10000; transition:opacity .5s ease;
     }
     .logo-container { position:relative; width:60vw; max-width:300px; margin-bottom:1rem; }
     .logo-container img { width:100%; display:block; }
@@ -46,13 +49,15 @@
       margin-top:-2rem; z-index:10001;
     }
     .logo-main {
-      font-family:'Arial Black',sans-serif; font-size:3rem; letter-spacing:2px;
-      text-transform:uppercase; color:var(--accent);
+      font-family:'Arial Black',sans-serif;
+      font-size:3rem; letter-spacing:2px; text-transform:uppercase;
+      color:var(--accent);
       text-shadow:0 2px 4px rgba(0,0,0,0.7),0 -1px 0 rgba(255,255,255,0.3);
     }
     .logo-sub {
-      font-family:'Arial Black',sans-serif; font-size:2rem; letter-spacing:1px;
-      text-transform:uppercase; color:var(--accent);
+      font-family:'Arial Black',sans-serif;
+      font-size:2rem; letter-spacing:1px; text-transform:uppercase;
+      color:var(--accent);
       text-shadow:0 2px 4px rgba(0,0,0,0.7),0 -1px 0 rgba(255,255,255,0.3);
     }
 
@@ -63,7 +68,7 @@
     @keyframes pulse {0%,100%{opacity:1;}50%{opacity:.6;}}
     @keyframes glow-text {0%,100%{text-shadow:0 0 5px var(--accent);}50%{text-shadow:0 0 15px var(--accent);}}
 
-    /* Home */
+    /* Главная */
     #home {
       left:50%; right:50%; margin-left:-50vw; margin-right:-50vw;
       width:100vw; min-height:100vh; background:var(--steel-dark);
@@ -72,8 +77,7 @@
     #home .social-icons { position:absolute; top:.2rem; left:1rem; display:flex; gap:1rem; z-index:10001; }
     #home .social-icons a { color:#fff; font-size:1.5rem; }
     #home h1 {
-      font-size:1.6rem;
-      color:var(--accent);
+      font-size:1.6rem; color:var(--accent);
       animation:pulse 2s infinite, glow-text 4s ease-in-out infinite;
       margin-bottom:1rem; white-space:nowrap; text-transform:uppercase;
     }
@@ -95,7 +99,7 @@
     }
     section:not(#home) .back-arrow { display:block; }
 
-    /* Order */
+    /* Оформити замовлення */
     #order .choose-service {
       position:absolute; top:1rem; left:50%; transform:translateX(-50%);
       color:var(--accent); font-size:1.2rem; font-weight:bold; z-index:10001;
@@ -105,22 +109,27 @@
       margin-top:4rem; margin-bottom:2rem;
     }
     .service-item {
-      flex:1 1 calc(33.333% - 1rem); max-width:calc(33.333% - 1rem);
+      flex:1 1 calc(33.333% - 1rem);
+      max-width:calc(33.333% - 1rem);
       background:var(--steel-dark); border-radius:6px; padding:.8rem;
-      text-align:center; cursor:pointer; transition:box-shadow .3s, border .3s;
+      text-align:center; cursor:pointer;
+      transition:box-shadow .3s, border .3s;
     }
-    .service-item.selected {
-      border:2px solid var(--accent); box-shadow:0 0 10px var(--accent);
-    }
+    /* возвращаем белые иконки */
     .service-icon {
       filter: brightness(0) invert(1);
       display:block; margin:0 auto .5rem;
+      width:40px; height:40px;
     }
+    /* чуть больше для 3-го и 6-го */
     #order .service-list .service-item:nth-child(3) .service-icon,
     #order .service-list .service-item:nth-child(6) .service-icon {
       width:48px; height:48px;
     }
-    .service-item .service-icon { width:40px; height:40px; }
+    .service-item.selected {
+      border:2px solid var(--accent);
+      box-shadow:0 0 10px var(--accent);
+    }
     .service-item > div { font-weight:bold; }
     #order form {
       margin-top:4rem; background:var(--steel-dark); padding:1rem;
@@ -129,8 +138,8 @@
     }
     #order input, #order textarea {
       padding:.6rem; border:1px solid var(--steel-light);
-      border-radius:4px; background:var(--steel-mid); color:var(--text-light);
-      font-size:0.9rem;
+      border-radius:4px; background:var(--steel-mid);
+      color:var(--text-light); font-size:0.9rem;
     }
     #order label { display:flex; align-items:center; gap:.5rem; font-size:.9rem; }
     #order form button {
@@ -140,7 +149,7 @@
     }
     #order form button:hover { background:var(--text-light); }
 
-    /* Confirmation modal */
+    /* Модалки */
     #confirmation-modal,
     #contacts-modal {
       position:fixed; inset:0; background:rgba(0,0,0,0.8);
@@ -151,19 +160,17 @@
     #contacts-modal.show {
       opacity:1; visibility:visible;
     }
-    #confirmation-modal .modal-content,
-    #contacts-modal .modal-content {
+    .modal-content {
       background:var(--steel-dark); padding:1.5rem; border-radius:6px;
       max-width:80%; text-align:center; color:var(--accent);
     }
-    #confirmation-modal button,
-    #contacts-modal button {
+    .modal-content button {
       margin-top:1rem; padding:.6rem 1.2rem; border:none;
-      border-radius:4px; background:var(--accent); color:var(--steel-dark);
-      cursor:pointer;
+      border-radius:4px; background:var(--accent);
+      color:var(--steel-dark); cursor:pointer;
     }
 
-    /* Services slider */
+    /* Наші послуги */
     #services { overflow:hidden; }
     #services h2 { text-align:center; color:var(--accent); margin-bottom:1rem; }
     .carousel { position:relative; width:100%; }
@@ -176,9 +183,12 @@
       padding:2rem 1.5rem; max-width:800px; margin:0 auto; text-align:center;
     }
     .carousel-card h3 { margin-bottom:1rem; }
+    /* гарантируем показ картинок */
     .carousel-card .service-img {
+      display:block;
       width:80%; max-width:400px; height:auto;
-      border-radius:4px; box-shadow:0 0 5px var(--accent); margin-bottom:1rem;
+      border-radius:4px; box-shadow:0 0 5px var(--accent);
+      margin-bottom:1rem;
     }
     .carousel-card p {
       max-width:700px; text-align:justify; line-height:1.6; margin-bottom:1rem;
@@ -191,24 +201,13 @@
     .carousel-arrow.prev { left:1rem; }
     .carousel-arrow.next { right:1rem; }
 
-    /* About */
-    #about h2 { text-align:center; color:var(--accent); margin-bottom:1rem; }
-    #about .content {
+    /* Про компанію */
+    #about h2, #partners h2 { text-align:center; color:var(--accent); margin-bottom:1rem; }
+    #about .content, #partners .content {
       background:var(--steel-dark); padding:1rem; border-radius:6px; margin:0 1rem;
     }
-    #about .content p { margin-bottom:1rem; text-align:justify; }
+    #about .content p, #partners .content p { margin-bottom:1rem; text-align:justify; }
     #about .content ul { list-style:disc inside; margin-left:1rem; margin-bottom:1rem; }
-
-    /* Contacts section (unused by nav) */
-    #contacts h2 { text-align:center; color:var(--accent); margin-bottom:1rem; }
-    #contacts .info {
-      background:var(--steel-dark); padding:1rem; border-radius:6px; margin:0 1rem;
-    }
-    #contacts .info p { margin-bottom:.5rem; }
-
-    /* Partners */
-    #partners h2 { text-align:center; color:var(--accent); margin-bottom:1rem; }
-    #partners .content { padding:0 1rem; }
 
     /* Responsive */
     @media (max-width:600px) {
@@ -232,7 +231,7 @@
 </head>
 <body>
 
-  <!-- Preloader -->
+  <!-- Прелоадер -->
   <div id="preloader">
     <div class="logo-container">
       <img src="https://i.ibb.co/NgZcvp6S/2025-05-03-224713.png" alt="Advanced Security Systems">
@@ -244,7 +243,7 @@
     </div>
   </div>
 
-  <!-- Confirmation Modal -->
+  <!-- Модалки -->
   <div id="confirmation-modal">
     <div class="modal-content">
       <p>Дякуємо, ваше замовлення сформовано, очікуйте на дзвінок оператора.</p>
@@ -252,7 +251,6 @@
     </div>
   </div>
 
-  <!-- Contacts Popup Modal -->
   <div id="contacts-modal">
     <div class="modal-content">
       <h2>Наші контакти</h2>
@@ -299,11 +297,11 @@
           <div>Автомобілі</div>
         </div>
         <div class="service-item">
-          <img src="https://i.ibb.co/h6XyMJ5/4.png" class="service-icon" alt="Яхти">
+          <img src="https://i.ibb.co/h6XyMJ5/4.png" class="service-icon" alt="Яхти та літаки">
           <div>Яхти і літаки</div>
         </div>
         <div class="service-item">
-          <img src="https://i.ibb.co/t1jxYYH/5.png" class="service-icon" alt="Подарунки">
+          <img src="https://i.ibb.co/t1jxYYH/5.png" class="service-icon" alt="Речі">
           <div>Речі та предмети</div>
         </div>
         <div class="service-item">
@@ -328,32 +326,32 @@
         <button class="carousel-arrow prev"><i class="fas fa-arrow-left"></i></button>
         <div class="carousel-track">
           <div class="carousel-card">
-            <img class="service-img" src="https://i.ibb.co/yFQGFDhC/2025-05-04-231513.png" alt="">
+            <img class="service-img" src="https://i.ibb.co/yFQGFDhC/2025-05-04-231513.png" alt="Перевірка офісів">
             <h3>ПЕРЕВІРКА ОФІСІВ</h3>
             <p>Ми проводимо комплексну перевірку офісних приміщень за допомогою передових радіочастотних сканерів, тепловізорів та акустичних детекторів. Спочатку виконуємо ретельний огляд периметра та внутрішніх зон, щоб виявити будь-які приховані прослуховуючі пристрої чи камери спостереження. Надаємо докладний звіт із картами виявлених загроз та рекомендаціями щодо їх усунення. Після завершення перевірки ви отримаєте консультацію з оптимізації безпеки та встановлення додаткових захисних систем.</p>
           </div>
           <div class="carousel-card">
-            <img class="service-img" src="https://i.ibb.co/tM8M6SpR/0df585aa9b70594e9dc304f952255ff6-29582.jpg" alt="">
+            <img class="service-img" src="https://i.ibb.co/tM8M6SpR/0df585aa9b70594e9dc304f952255ff6-29582.jpg" alt="Перевірка квартир та будинків">
             <h3>ПЕРЕВІРКА КВАРТИР І БУДИНКІВ</h3>
             <p>Наші фахівці виконують детальний огляд житлових приміщень із використанням детекторів радіочастот, тепловізорів та мікрофонних зондів. Перевіряємо стіни, меблі, побутову техніку та вентиляційні канали, щоб виключити будь-які спроби прихованого спостереження. Після завершення роботи складаємо звіт із фото- та відеофіксацією виявлених загроз та пропозиціями щодо їх усунення. Застосовуємо перевірені контрзаходи для захисту вашого особистого простору.</p>
           </div>
           <div class="carousel-card">
-            <img class="service-img" src="https://i.ibb.co/5xRs0NG2/carGps.jpg" alt="">
+            <img class="service-img" src="https://i.ibb.co/5xRs0NG2/carGps.jpg" alt="Перевірка автомобілів">
             <h3>ПЕРЕВІРКА АВТОМОБІЛІВ</h3>
             <p>Мобільна команда виїжджає на місце з радіочастотними сканерами та тепловізорами для виявлення прихованих GPS-трекерів і прослуховуючих пристроїв. Проводимо аудит салону, багажника та моторного відсіку, щоб гарантувати повну безпеку вашого авто. Після перевірки складаємо звіт із виявленими ризиками та рекомендаціями щодо додаткового технічного захисту. За потреби встановлюємо екрануючі матеріали чи додаткові системи сигналізації.</p>
           </div>
           <div class="carousel-card">
-            <img class="service-img" src="https://i.ibb.co/XZNygRmF/1405860949-1706419428-kadrs.jpg" alt="">
+            <img class="service-img" src="https://i.ibb.co/XZNygRmF/1405860949-1706419428-kadrs.jpg" alt="Перевірка яхт та літаків">
             <h3>ПЕРЕВІРКА ЯХТ ТА ЛІТАКІВ</h3>
             <p>Професійний аудит бортових систем яхт і літаків із використанням спеціалізованого обладнання для радіочастотного та інфрачервоного сканування. Перевіряємо вантажні відсіки, пасажирські кабіни та технічні приміщення на наявність прихованих моніторингових пристроїв. Результатом є детальний звіт із рекомендаціями щодо підвищення рівня безпеки та встановлення контрзаходів. Гарантуємо конфіденційність та повну технічну підтримку під час польотів чи морських подорожей.</p>
           </div>
           <div class="carousel-card">
-            <img class="service-img" src="https://i.ibb.co/0pKgzdy8/5.jpg" alt="">
+            <img class="service-img" src="https://i.ibb.co/0pKgzdy8/5.jpg" alt="Перевірка речей та предметів">
             <h3>ПЕРЕВІРКА РЕЧЕЙ І ПРЕДМЕТІВ</h3>
             <p>Швидка та точна перевірка посилок, подарунків та особистих речей за допомогою портативних радіочастотних детекторів та тепловізійних камер. Ідентифікуємо розташування трекерів, мікрофонів чи камер у найменших предметах. Після завершення сканування ви отримуєте звіт із рекомендаціями щодо безпечного відкриття та зберігання вантажів. Послуга незамінна для корпоративних доставок і приватних дарунків.</p>
           </div>
           <div class="carousel-card">
-            <img class="service-img" src="https://i.ibb.co/m5rrkDD1/a49c7903930d0af02ff231df98bf0fa7.jpg" alt="">
+            <img class="service-img" src="https://i.ibb.co/m5rrkDD1/a49c7903930d0af02ff231df98bf0fa7.jpg" alt="Супровід переговорів">
             <h3>СУПРОВІД ПЕРЕГОВОРІВ</h3>
             <p>Організація захищених переговорів із використанням акустичної ізоляції, шифрованих каналів зв’язку та постійного технічного моніторингу. Забезпечуємо контроль за навколишнім середовищем для запобігання будь-яким спробам прослуховування. Кожна зустріч супроводжується кваліфікованими інженерами, які оперативно реагують на будь-які загрози. Гарантуємо повну конфіденційність і створення максимально безпечного простору для ваших переговорів.</p>
           </div>
@@ -362,12 +360,11 @@
       </div>
     </section>
 
-    <!-- About -->
+    <!-- Про компанію -->
     <section id="about">
       <div class="back-arrow" onclick="showSection('home')"><i class="fas fa-arrow-left"></i></div>
       <h2>Про компанію</h2>
       <div class="content">
-        <!-- існуючий опис компанії -->
         <p>Advanced Security Systems — це ліцензований провайдер високотехнологічних послуг у сфері безпеки, який працює згідно з дозволами Держспецзв’язку України. Ми спеціалізуємося на виявленні та нейтралізації прослуховуючих пристроїв, GPS-трекерів, прихованих відеокамер і інших засобів технічного стеження.</p>
         <p>Наша команда — це ветерани елітних підрозділів та спецслужб, висококваліфіковані аналітики, інженери з контррозвідки та експерти з кібербезпеки. Завдяки багаторічному практичному досвіду та постійному вдосконаленню навичок, ми гарантуємо ефективне виявлення загроз і створення надійного захисту персональних, корпоративних і державних інтересів.</p>
         <p>Ми використовуємо найсучасніше обладнання світового класу та впроваджуємо перевірені методики аналізу і контрдій. Кожна операція проводиться з максимальним дотриманням конфіденційності, оперативністю та повною відповідальністю перед замовником.</p>
@@ -383,102 +380,95 @@
       </div>
     </section>
 
-    <!-- Contacts section (not triggered by nav) -->
-    <section id="contacts">
-      <div class="back-arrow" onclick="showSection('home')"><i class="fas fa-arrow-left"></i></div>
-      <h2>Контакти</h2>
-      <div class="info">
-        <p><strong>Телефон:</strong> +38 (050) 123-45-67</p>
-        <p><strong>Email:</strong> info@advsecurity.ua</p>
-        <p><strong>Адреса:</strong> м. Київ, вул. Прикладна, 10</p>
-      </div>
-    </section>
-
-    <!-- Partners -->
+    <!-- Наші партнери -->
     <section id="partners">
       <div class="back-arrow" onclick="showSection('home')"><i class="fas fa-arrow-left"></i></div>
       <h2>Наші партнери</h2>
-      <div class="content"><!-- Partners content --></div>
+      <div class="content">
+        <!-- Тут був ваш контент партнерів -->
+      </div>
     </section>
   </main>
 
   <script>
     function showSection(id) {
-      const current = document.querySelector('section.active');
-      const next = document.getElementById(id);
-      if (current !== next) {
-        current.style.opacity = '0';
-        setTimeout(() => {
-          current.classList.remove('active');
-          next.classList.add('active');
-          next.style.opacity = '1';
-        }, 500);
+      const cur = document.querySelector('section.active');
+      const nxt = document.getElementById(id);
+      if (cur!==nxt) {
+        cur.style.opacity='0';
+        setTimeout(()=>{
+          cur.classList.remove('active');
+          nxt.classList.add('active');
+          nxt.style.opacity='1';
+        },500);
       }
     }
-    function showContactsModal() {
+    function showContactsModal(){
       document.getElementById('contacts-modal').classList.add('show');
     }
-    window.addEventListener('load', () => {
-      setTimeout(() => {
+    window.addEventListener('load', ()=>{
+      setTimeout(()=>{
         const pre = document.getElementById('preloader');
-        pre.style.opacity = '0';
-        setTimeout(() => {
-          pre.style.display = 'none';
-          document.getElementById('main').style.display = 'block';
-        }, 500);
-      }, 5000);
+        pre.style.opacity='0';
+        setTimeout(()=>{
+          pre.style.display='none';
+          document.getElementById('main').style.display='block';
+        },500);
+      },5000);
 
-      if ('Notification' in window) Notification.requestPermission();
+      if('Notification' in window) Notification.requestPermission();
 
-      const chooseText = document.querySelector('#order .choose-service');
+      // выбор услуги
+      const choose = document.querySelector('#order .choose-service');
       const items = document.querySelectorAll('#order .service-item');
-      items.forEach(i => i.addEventListener('click', () => i.classList.toggle('selected')));
+      items.forEach(i=>i.addEventListener('click',()=>i.classList.toggle('selected')));
+
+      // форма
       const form = document.getElementById('order-form');
       const pre = document.getElementById('preloader');
       const modal = document.getElementById('confirmation-modal');
-      const backArrow = document.querySelector('#order .back-arrow');
-
-      form.addEventListener('submit', e => {
+      const back = document.querySelector('#order .back-arrow');
+      form.addEventListener('submit', e=>{
         e.preventDefault();
-        chooseText.style.display = 'none';
-        pre.style.display = 'flex'; pre.style.opacity = '1'; backArrow.style.display = 'none';
-        setTimeout(() => {
-          pre.style.opacity = '0';
-          setTimeout(() => pre.style.display = 'none', 500);
+        choose.style.display='none';
+        pre.style.display='flex'; pre.style.opacity='1'; back.style.display='none';
+        setTimeout(()=>{
+          pre.style.opacity='0';
+          setTimeout(()=>pre.style.display='none',500);
           modal.classList.add('show');
           form.reset();
-          items.forEach(i => i.classList.remove('selected'));
-          if (Notification.permission === 'granted') {
-            new Notification('Дякуємо!', {
-              body: 'Ваше замовлення сформовано, очікуйте на дзвінок оператора.',
-              icon: 'https://i.ibb.co/NgZcvp6S/2025-05-03-224713.png'
+          items.forEach(i=>i.classList.remove('selected'));
+          if(Notification.permission==='granted'){
+            new Notification('Дякуємо!',{
+              body:'Ваше замовлення сформовано, очікуйте на дзвінок оператора.',
+              icon:'https://i.ibb.co/NgZcvp6S/2025-05-03-224713.png'
             });
           }
-        }, 2000);
+        },2000);
       });
-      document.getElementById('modal-close').addEventListener('click', () => {
-        document.getElementById('confirmation-modal').classList.remove('show');
-        document.querySelector('#order .back-arrow').style.display = 'block';
-        document.querySelector('#order .choose-service').style.display = 'block';
+      document.getElementById('modal-close').addEventListener('click',()=>{
+        modal.classList.remove('show');
+        back.style.display='block';
+        choose.style.display='block';
       });
-      document.getElementById('contacts-modal-close').addEventListener('click', () => {
+      document.getElementById('contacts-modal-close').addEventListener('click',()=>{
         document.getElementById('contacts-modal').classList.remove('show');
       });
 
-      // Services slider
+      // слайдер
       const track = document.querySelector('.carousel-track');
       const cards = Array.from(track.children);
-      const prevBtn = document.querySelector('.carousel-arrow.prev');
-      const nextBtn = document.querySelector('.carousel-arrow.next');
-      let idx = 0;
-      function updateSlider() {
-        track.style.transform = `translateX(-${idx * 100}%)`;
-        prevBtn.style.display = idx === 0 ? 'none' : 'block';
-        nextBtn.style.display = idx === cards.length - 1 ? 'none' : 'block';
+      const prev = document.querySelector('.carousel-arrow.prev');
+      const next = document.querySelector('.carousel-arrow.next');
+      let idx=0;
+      function upd(){
+        track.style.transform=`translateX(-${idx*100}%)`;
+        prev.style.display=idx===0?'none':'block';
+        next.style.display=idx===cards.length-1?'none':'block';
       }
-      prevBtn.addEventListener('click', () => { if (idx > 0) idx--; updateSlider(); });
-      nextBtn.addEventListener('click', () => { if (idx < cards.length - 1) idx++; updateSlider(); });
-      updateSlider();
+      prev.addEventListener('click',()=>{ if(idx>0) idx--; upd(); });
+      next.addEventListener('click',()=>{ if(idx<cards.length-1) idx++; upd(); });
+      upd();
     });
   </script>
 </body>
